@@ -118,5 +118,15 @@ public class Contact {
 
     }
 
+    public void deleteContact(String name) {
+        if(Loader.containsKey(name)){
+            Loader.remove(name);
+        }
+        else {
+            System.out.println("No person found with name : " + name + " int the contacts");
+        }
+
+    }
+
 }
 
