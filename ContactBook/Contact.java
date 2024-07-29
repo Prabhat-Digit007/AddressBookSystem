@@ -74,7 +74,49 @@ public class Contact {
 //        }
     }
 
-    
+    public void updateContact(String name){
+
+        if (Loader.containsKey(name)){
+            System.out.println("Choose what do you want yo update!");
+            System.out.println("1. First Name");
+            System.out.println("2. Last Name");
+            System.out.println("3. Address");
+            System.out.println("4. City");
+            System.out.println("5. State");
+            System.out.println("6. Zip");
+            System.out.println("7. PhoneNumber");
+            System.out.println("8. Email");
+
+
+        Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            switch (n){
+                case 1:
+                    System.out.println("Enter updated first name for user");
+                    String updatedName = sc.next();
+
+                    Address address = Loader.get(name);
+                    address.setFirstName(updatedName);
+                    Loader.remove(name);
+                    Loader.put(updatedName, address);
+
+//                    HashMap<String,String> mew = new HashMap<>();
+//                    mew.put("firstName", updatedName);
+//                    for(HashMap.Entry<String ,HashMap<String,String >> change : LoaderDetails.entrySet()){
+//                        if(Objects.equals(change.getKey(), name)){
+//                            change.setValue(mew);
+//                        }
+//                    }
+                    break;
+
+
+            }
+        }
+        else{
+            System.out.println("No User found in Address Book with name this " + name);
+        }
+
+    }
 
 }
 
